@@ -27,6 +27,14 @@ class FormPage extends Page {
     async submit() {
         await this.submitButton.click();
     }
+
+    async fillUserName(userName: string) {
+        await (await this.username).setValue(userName);
+    }
+
+    async fillPassword(password: string) {
+        await (await this.password).setValue(password);
+    }
 }
 
 export default new FormPage();

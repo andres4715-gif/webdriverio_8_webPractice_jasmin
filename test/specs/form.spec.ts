@@ -8,20 +8,16 @@ describe("auth form", () => {
         await FormPage.submit();
 
         await FormPage.flash.waitForDisplayed();
-        await expect(FormPage.flash).toHaveTextContaining(
-            "Your username is invalid!"
-        );
+        await FormPage.checkFashMessage("Your username is invalid!");
     });
 
     it("should allow access with correct creds", async () => {
         await FormPage.open();
-        await FormPage.username.setValue("tomsmith");
-        await FormPage.password.setValue("SuperSecretPassword!");
+        await FormPage.fillUserName("tomsmith");
+        await FormPage.fillPassword("SuperSecretPassword!");
         await FormPage.submit();
 
         await FormPage.flash.waitForDisplayed();
-        await expect(FormPage.flash).toHaveTextContaining(
-            "You logged into a secure area!"
-        );
+        await FormPage.checkFashMessage("You logged into a secure area!");
     });
 });

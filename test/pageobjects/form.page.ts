@@ -7,12 +7,15 @@ class FormPage extends Page {
     get username() {
         return $("#username");
     }
+
     get password() {
         return $("#password");
     }
+
     get submitButton() {
         return $("#login button[type=submit]");
     }
+
     get flash() {
         return $("#flash");
     }
@@ -29,11 +32,15 @@ class FormPage extends Page {
     }
 
     async fillUserName(userName: string) {
-        await (await this.username).setValue(userName);
+        await this.username.setValue(userName);
     }
 
     async fillPassword(password: string) {
-        await (await this.password).setValue(password);
+        await this.password.setValue(password);
+    }
+
+    async checkFashMessage(obtainedMessage: string) {
+        await expect(this.flash).toHaveTextContaining(obtainedMessage);
     }
 }
 

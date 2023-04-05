@@ -1,4 +1,5 @@
 import Page from "./page.js";
+import Expect from "../helpers/Expects.js";
 
 class FormPage extends Page {
     /**
@@ -39,9 +40,9 @@ class FormPage extends Page {
         await this.password.setValue(password);
     }
 
-    async checkFashMessage(obtainedMessage: string) {
+    async checkFashMessage(expectedMessage: string) {
         await this.flash.waitForDisplayed();
-        await expect(this.flash).toHaveTextContaining(obtainedMessage);
+        await Expect.toHaveTextContaining(await this.flash, expectedMessage);
     }
 }
 

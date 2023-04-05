@@ -6,8 +6,6 @@ describe("auth form", () => {
         await FormPage.fillUserName("jhon doe");
         await FormPage.fillPassword("bar");
         await FormPage.submit();
-
-        await FormPage.flash.waitForDisplayed();
         await FormPage.checkFashMessage("Your username is invalid!");
     });
 
@@ -16,8 +14,6 @@ describe("auth form", () => {
         await FormPage.fillUserName("tomsmith");
         await FormPage.fillPassword("SuperSecretPassword!");
         await FormPage.submit();
-
-        await FormPage.flash.waitForDisplayed();
         await FormPage.checkFashMessage("You logged into a secure area!");
     });
 });

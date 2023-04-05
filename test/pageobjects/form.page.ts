@@ -40,6 +40,7 @@ class FormPage extends Page {
     }
 
     async checkFashMessage(obtainedMessage: string) {
+        await this.flash.waitForDisplayed();
         await expect(this.flash).toHaveTextContaining(obtainedMessage);
     }
 }

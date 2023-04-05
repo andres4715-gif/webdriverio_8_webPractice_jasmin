@@ -93,3 +93,24 @@ describe("auth form", () => {
 ```
 
 ---
+
+# **WAIT**
+
+## **waitForDisplayed()**
+
+```javascript
+class FormPage extends Page {
+    get flash() {
+        return $("#flash");
+    }
+
+    async checkFashMessage(obtainedMessage: string) {
+        await this.flash.waitForDisplayed();
+        await expect(this.flash).toHaveTextContaining(obtainedMessage);
+    }
+}
+
+export default new FormPage();
+```
+
+---

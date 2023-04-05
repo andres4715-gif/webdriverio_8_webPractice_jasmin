@@ -43,6 +43,10 @@ class DynamicPage extends Page {
     async waitForLoaded() {
         await Utils.waitForExist(await this.loadedPage, "Loaded progress bar");
     }
+
+    async verifyLoadedIsPresent() {
+        await Expect.toBePresent(await this.loadedPage);
+    }
 }
 
 export default new DynamicPage();

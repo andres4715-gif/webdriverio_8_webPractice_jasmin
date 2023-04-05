@@ -9,6 +9,6 @@ describe("dynamic loading", () => {
         await DynamicPage.startButtonNotToBePresent();
         await DynamicPage.clickOnStartButton();
         await DynamicPage.waitForLoaded();
-        // await expect(DynamicPage.loadedPage).toBePresent();
+        await DynamicPage.verifyLoadedIsPresent();
     });
 });

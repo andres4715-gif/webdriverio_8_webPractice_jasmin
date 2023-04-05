@@ -21,19 +21,19 @@ class DynamicPage extends Page {
     }
 
     async loadedShouldBeNotDisplayed() {
-        await Expect.not_toBeDisplayed(await this.loadedPage);
+        await Expect.not_toBeDisplayed(await this.loadedPage, "Loaded bar");
     }
 
     async startButtonShouldBeDisplayed() {
-        await Expect.toBeDisplayed(await this.btnStart);
+        await Expect.toBeDisplayed(await this.btnStart, "Start Button");
     }
 
     async startButtonToBePresent() {
-        await Expect.toBePresent(await this.btnStart);
+        await Expect.toBePresent(await this.btnStart, "Start Button");
     }
 
     async startButtonNotToBePresent() {
-        await Expect.not_toBePresent(await this.loadedPage);
+        await Expect.not_toBePresent(await this.loadedPage, "Start Button");
     }
 
     async clickOnStartButton() {
@@ -45,7 +45,7 @@ class DynamicPage extends Page {
     }
 
     async verifyLoadedIsPresent() {
-        await Expect.toBePresent(await this.loadedPage);
+        await Expect.toBePresent(await this.loadedPage, "Loaded progress bar");
     }
 }
 

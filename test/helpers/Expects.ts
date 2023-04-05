@@ -21,20 +21,76 @@ class Expect {
         );
     }
 
-    static async toBeDisplayed(element: WebdriverIO.Element) {
+    /**
+     * Asserts that the provided element is displayed on the page.
+     *
+     * @param {WebdriverIO.Element} element - The element to be checked.
+     * @param {string} elementName - The name of the element to identify it in the logs.
+     * @returns {Promise<void>} - A promise that resolves once the assertion is complete.
+     * @throws {AssertionError} - If the element is not displayed on the page.
+     */
+    static async toBeDisplayed(
+        element: WebdriverIO.Element,
+        elementName: string
+    ) {
         await expect(element).toBeDisplayed();
+        console.log(
+            `--- The ${elementName}, is displayed on the page: ${await element.isDisplayed()}`
+        );
     }
 
-    static async not_toBeDisplayed(element: WebdriverIO.Element) {
+    /**
+     * Asserts that the provided element is not displayed on the page.
+     *
+     * @param {WebdriverIO.Element} element - The element to be checked.
+     * @param {string} elementName - The name of the element to identify it in the logs.
+     * @returns {Promise<void>} - A promise that resolves once the assertion is complete.
+     * @throws {AssertionError} - If the element is displayed on the page.
+     */
+    static async not_toBeDisplayed(
+        element: WebdriverIO.Element,
+        elementName: string
+    ) {
         await expect(element).not.toBeDisplayed();
+        console.log(
+            `--- The ${elementName}, is displayed on the page: ${await element.isDisplayed()}`
+        );
     }
 
-    static async toBePresent(element: WebdriverIO.Element) {
+    /**
+     * Asserts that the provided element is present in the DOM.
+     *
+     * @param {WebdriverIO.Element} element - The element to be checked.
+     * @param {string} elementName - The name of the element to identify it in the logs.
+     * @returns {Promise<void>} - A promise that resolves once the assertion is complete.
+     * @throws {AssertionError} - If the element is not present in the DOM.
+     */
+    static async toBePresent(
+        element: WebdriverIO.Element,
+        elementName: string
+    ) {
         await expect(element).toBePresent();
+        console.log(
+            `--- The ${elementName}, is present on the page: ${await element.isDisplayed()}`
+        );
     }
 
-    static async not_toBePresent(element: WebdriverIO.Element) {
+    /**
+     * Asserts that the provided element is not present in the DOM.
+     *
+     * @param {WebdriverIO.Element} element - The element to be checked.
+     * @param {string} elementName - The name of the element to identify it in the logs.
+     * @returns {Promise<void>} - A promise that resolves once the assertion is complete.
+     * @throws {AssertionError} - If the element is present in the DOM.
+     */
+    static async not_toBePresent(
+        element: WebdriverIO.Element,
+        elementName: string
+    ) {
         await expect(element).not.toBePresent();
+        console.log(
+            `--- The ${elementName}, is present on the page: ${await element.isDisplayed()}`
+        );
     }
 
     /**

@@ -1,11 +1,12 @@
 import Page from "./page.js";
 import Expect from "../helpers/expects.js";
+import Utils from "../helpers/utils.js";
 
 class FormPage extends Page {
     /**
      * define elements
      */
-    get username() {
+    get userName() {
         return $("#username");
     }
 
@@ -29,20 +30,24 @@ class FormPage extends Page {
     }
 
     async submit() {
-        await this.submitButton.click();
+        await Utils.click(await this.submitButton, "Log in");
     }
 
-    async fillUserName(userName: string) {
-        await this.username.setValue(userName);
+    async fillUserName(textUserName: string) {
+        await Utils.setValue(await this.userName, textUserName, "User Name");
     }
 
-    async fillPassword(password: string) {
-        await this.password.setValue(password);
+    async fillPassword(textPassword: string) {
+        await Utils.setValue(await this.password, textPassword, "Password");
     }
 
-    async checkFashMessage(expectedMessage: string) {
-        await this.flash.waitForDisplayed();
-        await Expect.toHaveTextContaining(await this.flash, expectedMessage);
+    async checkFlashMessage(expectedMessage: string) {
+        await Utils.waitForExist(await this.flash, "Flash message");
+        await Expect.toHaveTextContaining(
+            await this.flash,
+            "Flash Message",
+            expectedMessage
+        );
     }
 }
 

@@ -1,11 +1,24 @@
 // You can use this class from any test or page within the framework
 
 class Expect {
+    /**
+     * Asserts that the provided element's text contains the expected text.
+     *
+     * @param {WebdriverIO.Element} element - The element to be checked.
+     * @param {string} elementName - The name of the element to identify it in the logs.
+     * @param {string} expectedText - The text to search for within the element's text.
+     * @returns {Promise<void>} - A promise that resolves once the assertion is complete.
+     * @throws {AssertionError} - If the element's text does not contain the expected text.
+     */
     static async toHaveTextContaining(
         element: WebdriverIO.Element,
+        elementName: string,
         expectedText: string
     ) {
         await expect(element).toHaveTextContaining(expectedText);
+        console.log(
+            `--- The ${elementName}, contains part of this text: ${expectedText}`
+        );
     }
 
     static async toBeDisplayed(element: WebdriverIO.Element) {

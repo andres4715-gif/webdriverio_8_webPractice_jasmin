@@ -6,7 +6,7 @@ describe("auth form", () => {
         await FormPage.fillUserName("jhon doe");
         await FormPage.fillPassword("bar");
         await FormPage.submit();
-        await FormPage.checkFashMessage("Your username is invalid!");
+        await FormPage.checkFlashMessage("Your username is invalid!");
     });
 
     it("should allow access with correct creds", async () => {
@@ -14,6 +14,6 @@ describe("auth form", () => {
         await FormPage.fillUserName("tomsmith");
         await FormPage.fillPassword("SuperSecretPassword!");
         await FormPage.submit();
-        await FormPage.checkFashMessage("You logged into a secure area!");
+        await FormPage.checkFlashMessage("You logged into a secure area!");
     });
 });

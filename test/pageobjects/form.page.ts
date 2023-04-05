@@ -1,5 +1,5 @@
 import Page from "./page.js";
-import Expect from "../helpers/Expects.js";
+import Expect from "../helpers/expects.js";
 
 class FormPage extends Page {
     /**

@@ -1,5 +1,6 @@
 import Page from "./page.js";
-import Expect from "../helpers/Expects.js";
+import Expect from "../helpers/expects.js";
+import Utils from "../helpers/utils.js";
 
 class DynamicPage extends Page {
     /**
@@ -33,6 +34,14 @@ class DynamicPage extends Page {
 
     async startButtonNotToBePresent() {
         await Expect.not_toBePresent(await this.loadedPage);
+    }
+
+    async clickOnStartButton() {
+        await Utils.click(await this.btnStart, "Start Button");
+    }
+
+    async waitForLoaded() {
+        await Utils.waitForExist(await this.loadedPage, "Loaded progress bar");
     }
 }
 

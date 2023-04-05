@@ -1,9 +1,9 @@
-import url from 'node:url'
-import path from 'node:path'
+import url from "node:url";
+import path from "node:path";
 
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url))
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
-export const config: Omit<WebdriverIO.Config, 'capabilities'> = {
+export const config: Omit<WebdriverIO.Config, "capabilities"> = {
     //
     // ====================
     // Runner Configuration
@@ -11,7 +11,7 @@ export const config: Omit<WebdriverIO.Config, 'capabilities'> = {
     //
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
-    runner: 'local',
+    runner: "local",
     //
     // ==================
     // Specify Test Files
@@ -23,7 +23,7 @@ export const config: Omit<WebdriverIO.Config, 'capabilities'> = {
     //
     specs: [
         // './test/specs/**/*.ts'
-        './test/specs/**/form.spec.ts'
+        "./test/specs/**/dynamic.spec.ts",
     ],
     // Patterns to exclude.
     exclude: [
@@ -53,8 +53,8 @@ export const config: Omit<WebdriverIO.Config, 'capabilities'> = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'trace',
-    outputDir: path.resolve(__dirname, 'logs'),
+    logLevel: "trace",
+    outputDir: path.resolve(__dirname, "logs"),
     //
     // Set specific log levels per logger
     // loggers:
@@ -78,7 +78,7 @@ export const config: Omit<WebdriverIO.Config, 'capabilities'> = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://the-internet.herokuapp.com',
+    baseUrl: "http://the-internet.herokuapp.com",
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -96,7 +96,7 @@ export const config: Omit<WebdriverIO.Config, 'capabilities'> = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
-    framework: 'jasmine',
+    framework: "jasmine",
     //
     // The number of times to retry the entire specfile when it fails as a whole
     // specFileRetries: 1,
@@ -107,7 +107,7 @@ export const config: Omit<WebdriverIO.Config, 'capabilities'> = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    reporters: ['spec'],
+    reporters: ["spec"],
     //
     // Options to be passed to Jasmine.
     jasmineOpts: {
@@ -120,7 +120,7 @@ export const config: Omit<WebdriverIO.Config, 'capabilities'> = {
         // expectationResultHandler: function(passed, assertion) {
         //     do something
         // }
-    }
+    },
     //
     // =====
     // Hooks
@@ -200,7 +200,6 @@ export const config: Omit<WebdriverIO.Config, 'capabilities'> = {
     // afterTest: function(test, context, { error, result, duration, passed, retries }) {
     // },
 
-
     /**
      * Hook that gets executed after the suite has ended
      * @param {Object} suite suite details
@@ -244,10 +243,10 @@ export const config: Omit<WebdriverIO.Config, 'capabilities'> = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-    * Gets executed when a refresh happens.
-    * @param {String} oldSessionId session ID of the old session
-    * @param {String} newSessionId session ID of the new session
-    */
+     * Gets executed when a refresh happens.
+     * @param {String} oldSessionId session ID of the old session
+     * @param {String} newSessionId session ID of the new session
+     */
     //onReload: function(oldSessionId, newSessionId) {
     //}
-}
+};

@@ -1,16 +1,16 @@
-import CheckboxPage from '../pageobjects/checkbox.page.js'
+import CheckboxPage from "../pageobjects/checkbox.page.js";
 
-describe('checkboxes', () => {
-    it('checkbox 2 should be enabled', async () => {
-        await CheckboxPage.open()
-        await expect(CheckboxPage.firstCheckbox).not.toBeSelected()
-        await expect(CheckboxPage.lastCheckbox).toBeSelected()
-    })
+describe("checkboxes", () => {
+    it("checkbox 2 should be enabled", async () => {
+        await CheckboxPage.open();
+        await CheckboxPage.verifyFirstCheckBoxIsNotSelected();
+        await CheckboxPage.verifyLastCheckBoxIsSelected();
+    });
 
-    it('checkbox 1 should be enabled after clicking on it', async () => {
-        await CheckboxPage.open()
-        await expect(CheckboxPage.firstCheckbox).not.toBeSelected()
-        await CheckboxPage.firstCheckbox.click()
-        await expect(CheckboxPage.firstCheckbox).toBeSelected()
-    })
-})
+    it("checkbox 1 should be enabled after clicking on it", async () => {
+        await CheckboxPage.open();
+        await CheckboxPage.verifyFirstCheckBoxIsNotSelected();
+        await CheckboxPage.clickOnFirstCheckbox();
+        await CheckboxPage.verifyFirstCheckBoxIsSelected();
+    });
+});

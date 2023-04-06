@@ -89,7 +89,7 @@ class Utils {
             },
             {
                 timeout: 10000,
-                timeoutMsg: "No se encontraron suficientes ventanas",
+                timeoutMsg: " XXX --- No windows enough",
             }
         ); // Define the limit time to wait
 

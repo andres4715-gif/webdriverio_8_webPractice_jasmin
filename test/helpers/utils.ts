@@ -73,6 +73,31 @@ class Utils {
             `--- In the ${elementName} was selected this option: ${value}`
         );
     }
+
+    /**
+     *This method switches the focus to the next browser tab.
+     *It waits until at least two browser tabs are open, and then switches to the second tab.
+     *@throws {Error} If there are not enough browser tabs open within the defined timeout.
+     *@example
+     *await switchBrowserTab();
+     */
+    static async switchBrowserTab() {
+        await browser.waitUntil(
+            async () => {
+                const windowHandles = await browser.getWindowHandles();
+                return windowHandles.length >= 2; // wait at less two windows
+            },
+            {
+                timeout: 10000,
+                timeoutMsg: "No se encontraron suficientes ventanas",
+            }
+        ); // Define the limit time to wait
+
+        const windowHandles = await browser.getWindowHandles();
+        const newTabHandle = windowHandles[1];
+        await browser.switchToWindow(newTabHandle);
+        console.log(`--- Switched to next the tab`);
+    }
 }
 
 export default Utils;

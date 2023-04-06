@@ -52,6 +52,27 @@ class Utils {
             `--- This Text: ${addText}, was added on the ${elementName} field`
         );
     }
+
+    /**
+     * Selects a value from a dropdown menu element by visible text.
+     *
+     * @param {WebdriverIO.Element} element - The dropdown menu element.
+     * @param {string} value - The visible text of the option to select.
+     * @param {string} elementName - The name of the dropdown menu element.
+     *
+     * @returns {Promise<void>}
+     */
+    static async dropdown(
+        element: WebdriverIO.Element,
+        value: string,
+        elementName: string
+    ) {
+        const dropdown = element;
+        await dropdown.selectByVisibleText(value);
+        console.log(
+            `--- In the ${elementName} was selected this option: ${value}`
+        );
+    }
 }
 
 export default Utils;

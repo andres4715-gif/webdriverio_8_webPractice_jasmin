@@ -23,7 +23,7 @@ export const config: Omit<WebdriverIO.Config, "capabilities"> = {
     //
     specs: [
         "./test/specs/**/*.ts",
-        // "./test/specs/**/form.spec.ts",
+        // "./test/specs/**/dropDown.spec.ts",
     ],
     // Patterns to exclude.
     exclude: [

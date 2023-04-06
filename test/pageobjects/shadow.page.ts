@@ -6,12 +6,15 @@ class Shadow extends Page {
     /**
      * define elements
      */
+
+    // ! this is the component within the shadow element
     get shadowHost() {
         return $(
             "#content > my-paragraph:nth-child(5)"
         ) as unknown as WebdriverIO.Element;
     }
 
+    // ! This is the element to interact within the shadow element
     get shadowText() {
         return $("[slot='my-text'] > li:nth-child(1)");
     }

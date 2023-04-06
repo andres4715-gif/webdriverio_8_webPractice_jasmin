@@ -98,6 +98,23 @@ class Utils {
         await browser.switchToWindow(newTabHandle);
         console.log(`--- Switched to next the tab`);
     }
+
+    /**
+     * Method that retrieves the shadow text of an element within a shadow DOM component.
+     *
+     * @param {WebdriverIO.Element} component - The shadow DOM component containing the shadowed element.
+     * @param {WebdriverIO.Element} element - The shadowed element whose text is to be retrieved.
+     * @returns {Promise<string>} - A promise that resolves to the text of the shadowed element.
+     */
+    static async shadow(
+        component: WebdriverIO.Element,
+        element: WebdriverIO.Element
+    ) {
+        const paragraph = component.$(element);
+        const text = await paragraph.getText();
+        console.log(`--- The shadow text obtained is: ${text}`);
+        return text;
+    }
 }
 
 export default Utils;

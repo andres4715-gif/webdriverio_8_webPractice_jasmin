@@ -26,10 +26,15 @@ class Shadow extends Page {
         return super.open("shadowdom");
     }
 
-    async getTextFromShadow() {
-        const paragraph = await this.shadowHost.$(await this.shadowText);
-        const text = await paragraph.getText();
-        console.log(">>>>>" + text);
+    async getTextFromShadow(fragmentText: string) {
+        const obtainedText = await Utils.shadow(
+            await this.shadowHost,
+            await this.shadowText
+        );
+        await Expect.obtainedTextContainsExpectedText(
+            obtainedText,
+            fragmentText
+        );
     }
 }
 

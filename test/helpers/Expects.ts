@@ -155,6 +155,23 @@ class Expect {
         await expect(element).toBeSelected();
         console.log(`--- The ${typeElement} ${elementName} is selected`);
     }
+
+    /**
+     * Method that checks if a given text fragment is contained within another text.
+     *
+     * @param {string} obtainedText - The text to be checked if it contains the fragment.
+     * @param {string} fragmentText - The text fragment to be checked if it exists in the obtained text.
+     * @throws {Error} - Throws an error if the obtained text does not contain the fragment.
+     */
+    static async obtainedTextContainsExpectedText(
+        obtainedText: string,
+        fragmentText: string
+    ) {
+        await expect(obtainedText).toContain(fragmentText);
+        console.log(
+            `The fragmentText: ${fragmentText}, exist on the obtainedText: ${obtainedText}`
+        );
+    }
 }
 
 export default Expect;

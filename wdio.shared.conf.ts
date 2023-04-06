@@ -23,7 +23,7 @@ export const config: Omit<WebdriverIO.Config, "capabilities"> = {
     //
     specs: [
         // "./test/specs/**/*.ts",
-        "./test/specs/**/switchTab.spec.ts",
+        "./test/specs/**/shadow.spec.ts",
     ],
     // Patterns to exclude.
     exclude: [

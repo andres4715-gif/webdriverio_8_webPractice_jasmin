@@ -22,6 +22,31 @@ class Expect {
     }
 
     /**
+     * Asserts that the provided element has the exact text as expected.
+     *
+     * @param {WebdriverIO.Element} element - The element to be checked.
+     * @param {string} elementName - The name of the element to identify it in the logs.
+     * @param {string} exactExpectedText - The expected text to match exactly.
+     * @returns {Promise<void>} - A promise that resolves once the assertion is complete.
+     * @throws {AssertionError} - If the obtained text does not exactly match the expected text.
+     */
+    static async toHaveEqualText(
+        element: WebdriverIO.Element,
+        elementName: string,
+        exactExpectedText: string
+    ) {
+        const obtainedText = (await element.getText()).toString();
+        console.log("--- Obtained text: " + obtainedText);
+        console.log("--- Expected text: " + exactExpectedText);
+        await expect(await exactExpectedText).toEqual(obtainedText);
+
+        console.log(
+            `--- The ${elementName}, has this text: ${obtainedText}
+            and it is the exact message against this expected text: ${exactExpectedText}.`
+        );
+    }
+
+    /**
      * Asserts that the provided element is displayed on the page.
      *
      * @param {WebdriverIO.Element} element - The element to be checked.

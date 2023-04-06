@@ -22,6 +22,10 @@ class FormPage extends Page {
         return $("#flash");
     }
 
+    get powerMessage() {
+        return $(".large-4.large-centered.columns");
+    }
+
     /**
      * define or overwrite page methods
      */
@@ -41,12 +45,21 @@ class FormPage extends Page {
         await Utils.setValue(await this.password, textPassword, "Password");
     }
 
-    async checkFlashMessage(expectedMessage: string) {
+    async checkFlashMessageContainsText(expectedMessage: string) {
         await Utils.waitForExist(await this.flash, "Flash message");
         await Expect.toHaveTextContaining(
             await this.flash,
             "Flash Message",
             expectedMessage
+        );
+    }
+
+    async checkExactTextPoweredMessage() {
+        await Utils.waitForExist(await this.powerMessage, "Powered message");
+        await Expect.toHaveEqualText(
+            await this.powerMessage,
+            "Powered Message",
+            "Powered by Elemental Selenium"
         );
     }
 }

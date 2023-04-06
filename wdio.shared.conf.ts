@@ -22,8 +22,8 @@ export const config: Omit<WebdriverIO.Config, "capabilities"> = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        // "./test/specs/**/*.ts",
-        "./test/specs/**/shadow.spec.ts",
+        "./test/specs/**/*.ts",
+        // "./test/specs/**/iframe.spec.ts",
     ],
     // Patterns to exclude.
     exclude: [

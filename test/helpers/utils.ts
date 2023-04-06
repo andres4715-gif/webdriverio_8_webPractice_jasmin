@@ -115,6 +115,28 @@ class Utils {
         console.log(`--- The shadow text obtained is: ${text}`);
         return text;
     }
+
+    /**
+     * Method that adds text to an input field within an iFrame element.
+     *
+     * @param {WebdriverIO.Element} component - The iFrame component containing the input field.
+     * @param {WebdriverIO.Element} iframeElement - The input field within the iFrame where text is to be added.
+     * @param {string} text - The text to be added to the input field.
+     */
+    static async addTextToiFrame(
+        component: WebdriverIO.Element,
+        iframeElement: WebdriverIO.Element,
+        text: string
+    ) {
+        const iframe = component;
+        await browser.switchToFrame(iframe);
+        console.log(`--- Switched to iFrame`);
+        const input = iframeElement;
+        await iframeElement.clearValue();
+        await input.setValue(text);
+        await browser.switchToParentFrame();
+        console.log(`--- Switched to iFrame`);
+    }
 }
 
 export default Utils;
